@@ -1,2 +1,2 @@
-# Example
-An example greeter plugin
+# Chartable Minimap
+Chart your own map as you explore Gielinor. 
