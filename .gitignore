@@ -6,4 +6,4 @@ build
 .classpath
 nbactions.xml
 nb-configuration.xml
-nbproject/.DS_Store
+**/.DS_Store
