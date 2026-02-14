@@ -48,9 +48,28 @@
 		</encoder>
 	</appender>
 
+	<appender name="FILE_CHARTING" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${user.home}/chartinglogs/charting.log</file>
+
+		<rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+			<!--TODO  This is my personal logger, remove before publishing.        -->
+			<fileNamePattern>${user.home}/chartinglogs/chart_%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+			<maxFileSize>10MB</maxFileSize>
+			<maxHistory>30</maxHistory>
+		</rollingPolicy>
+
+		<encoder>
+			<Pattern>%d{dd-MM-yyyy HH:mm:ss zzz} %msg%n</Pattern>
+		</encoder>
+	</appender>
+
 	<root level="INFO">
 		<appender-ref ref="STDOUT"/>
 		<appender-ref ref="FILE"/>
 	</root>
-	<logger name="com.chartableminimap" level="DEBUG" />
+	<logger name="com.charting" level="DEBUG" additivity="false">
+		<appender-ref ref="FILE"/>
+		<appender-ref ref="STDOUT"/>
+		<appender-ref ref="FILE_CHARTING"/>
+	</logger>
 </configuration>
